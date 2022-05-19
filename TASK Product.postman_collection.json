@@ -1,0 +1,148 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TASK Product",
+		"_postman_id": "dfaefa74-5e61-319d-7f77-17297425b083",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product",
+			"description": "",
+			"item": [
+				{
+					"name": "product/create",
+					"request": {
+						"url": "{{baseUrl}}product/create",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"productName\" : \"CADITAM 100MG TABLET ABC\",\r\n\t\"productCode\" : \"100001\",\r\n\t\"dosageForm\" : \"TABLET\",\r\n\t\"packingForm\" : \"STRIP\",\r\n\t\"packingDisplay\" : \"10 TABLET(s) IN A STRIP\",\r\n\t\"packingSize\" : \"50\",\r\n\t\"weight\" : \"63.57\",\r\n\t\"care\" : \"Yes\",\r\n\t\"salt\" : \"FLUOROURACIL TEST\",\r\n\t\"saltGroup\" : \"FLUOROURACIL TEST\",\r\n\t\"speciality\" : [\"AntiCancer\", \"Kidney\", \"transplant\"],\r\n\t\"manufacturer\" : \"CELON LABORATORIES LTD TEST\",\r\n\t\"mrp\" : \"120\",\r\n\t\"priceToCust\" : \"100\",\r\n\t\"discountMrp\" : \"17\",\r\n\t\"taxPercnt\" : \"12\",\r\n\t\"condition\" : [\"CovidTest\",\"infectious\",\"demospeciality\"],\r\n\t\"homeCategory\" : [\"NEW1\",\"NEW2\",\"NEW3\"],\r\n\t\"hsn\" : \"3005\",\r\n\t\"country\" : \"india\",\r\n\t\"strength\" : \"230MG\",\r\n\t\"stock\" : \"Yes\",\r\n\t\"stockType\" : \"out of stock\",\r\n\t\"reason\" : \"Some reasons\",\r\n\t\"prescriptReq\" : \"Yes\",\r\n\t\"pap\" : \"Yes\",\r\n    \"papOffer\": \"Buy 2 Get 3\",\r\n\t\"abcd\" : \"c\",\r\n\t\"seoTitle\" : \"medical\",\r\n\t\"keywords\" : \"medicines\",\r\n\t\"description\" : \"other doctor description\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "product/update",
+					"request": {
+						"url": "{{baseUrl}}product/update/628618132ee91a184455e2e0",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"productName\" : \"CADITAM 100MG TABLET ABC\",\r\n\t\"productCode\" : \"100001\",\r\n\t\"dosageForm\" : \"TABLET\",\r\n\t\"packingForm\" : \"STRIP\",\r\n\t\"packingDisplay\" : \"10 TABLET(s) IN A STRIP\",\r\n\t\"packingSize\" : \"50\",\r\n\t\"weight\" : \"63.57\",\r\n\t\"care\" : \"Yes\",\r\n\t\"salt\" : \"FLUOROURACIL TEST\",\r\n\t\"saltGroup\" : \"FLUOROURACIL TEST\",\r\n\t\"speciality\" : [\"AntiCancer\", \"Kidney\", \"transplant\"],\r\n\t\"manufacturer\" : \"CELON LABORATORIES LTD TEST\",\r\n\t\"mrp\" : \"120\",\r\n\t\"priceToCust\" : \"100\",\r\n\t\"discountMrp\" : \"17\",\r\n\t\"taxPercnt\" : \"12\",\r\n\t\"condition\" : [\"CovidTest\",\"infectious\",\"demospeciality\"],\r\n\t\"homeCategory\" : [\"NEW1\",\"NEW2\",\"NEW3\"],\r\n\t\"hsn\" : \"3005\",\r\n\t\"country\" : \"india\",\r\n\t\"strength\" : \"230MG\",\r\n\t\"stock\" : \"Yes\",\r\n\t\"stockType\" : \"out of stock\",\r\n\t\"reason\" : \"Some reasons\",\r\n\t\"prescriptReq\" : \"Yes\",\r\n\t\"pap\" : \"Yes\",\r\n\t\"papOffer\": \"Buy 2 Get 3\",\r\n\t\"abcd\" : \"c\",\r\n\t\"seoTitle\" : \"medical\",\r\n\t\"keywords\" : \"medicines\",\r\n\t\"description\" : \"other doctor description\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "product/getByProduct",
+					"request": {
+						"url": "{{baseUrl}}product/getByProduct/628618132ee91a184455e2e0",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "product/list",
+					"request": {
+						"url": "{{baseUrl}}product/list",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "product/delete",
+					"request": {
+						"url": "{{baseUrl}}product/delete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\" : \"628618132ee91a184455e2e0\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "product import",
+					"request": {
+						"url": "{{baseUrl}}product/imageUpload/628618132ee91a184455e2e0",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_image",
+									"description": "",
+									"type": "file",
+									"src": "images.jfif"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "product/excelImport",
+					"request": {
+						"url": "{{baseUrl}}product/excelimport",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "excelupload",
+									"description": "",
+									"type": "file",
+									"src": "products (1).xlsx"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
