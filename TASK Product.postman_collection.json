@@ -25,7 +25,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"productName\" : \"CADITAM 100MG TABLET ABC\",\r\n\t\"productCode\" : \"100001\",\r\n\t\"dosageForm\" : \"TABLET\",\r\n\t\"packingForm\" : \"STRIP\",\r\n\t\"packingDisplay\" : \"10 TABLET(s) IN A STRIP\",\r\n\t\"packingSize\" : \"50\",\r\n\t\"weight\" : \"63.57\",\r\n\t\"care\" : \"Yes\",\r\n\t\"salt\" : \"FLUOROURACIL TEST\",\r\n\t\"saltGroup\" : \"FLUOROURACIL TEST\",\r\n\t\"speciality\" : [\"AntiCancer\", \"Kidney\", \"transplant\"],\r\n\t\"manufacturer\" : \"CELON LABORATORIES LTD TEST\",\r\n\t\"mrp\" : \"120\",\r\n\t\"priceToCust\" : \"100\",\r\n\t\"discountMrp\" : \"17\",\r\n\t\"taxPercnt\" : \"12\",\r\n\t\"condition\" : [\"CovidTest\",\"infectious\",\"demospeciality\"],\r\n\t\"homeCategory\" : [\"NEW1\",\"NEW2\",\"NEW3\"],\r\n\t\"hsn\" : \"3005\",\r\n\t\"country\" : \"india\",\r\n\t\"strength\" : \"230MG\",\r\n\t\"stock\" : \"Yes\",\r\n\t\"stockType\" : \"out of stock\",\r\n\t\"reason\" : \"Some reasons\",\r\n\t\"prescriptReq\" : \"Yes\",\r\n\t\"pap\" : \"Yes\",\r\n    \"papOffer\": \"Buy 2 Get 3\",\r\n\t\"abcd\" : \"c\",\r\n\t\"seoTitle\" : \"medical\",\r\n\t\"keywords\" : \"medicines\",\r\n\t\"description\" : \"other doctor description\"\r\n}"
+							"raw": "{\r\n\t\"productName\" : \"5 FLUCEL 250MG INJECTION TEST\",\r\n\t\"productCode\" : \"100002\",\r\n\t\"dosageForm\" : \"TABLET\",\r\n\t\"packingForm\" : \"STRIP\",\r\n\t\"packingDisplay\" : \"10 TABLET(s) IN A STRIP\",\r\n\t\"packingSize\" : \"50\",\r\n\t\"weight\" : \"63.57\",\r\n\t\"care\" : \"Yes\",\r\n\t\"salt\" : \"FLUOROURACIL TEST\",\r\n\t\"saltGroup\" : \"FLUOROURACIL TEST\",\r\n\t\"speciality\" : [\"AntiCancer\", \"Kidney\", \"transplant\"],\r\n\t\"manufacturer\" : \"CELON LABORATORIES LTD TEST\",\r\n\t\"mrp\" : \"120\",\r\n\t\"priceToCust\" : \"100\",\r\n\t\"discountMrp\" : \"17\",\r\n\t\"taxPercnt\" : \"12\",\r\n\t\"condition\" : [\"CovidTest\",\"infectious\",\"demospeciality\"],\r\n\t\"homeCategory\" : [\"NEW1\",\"NEW2\",\"NEW3\"],\r\n\t\"hsn\" : \"3005\",\r\n\t\"country\" : \"india\",\r\n\t\"strength\" : \"230MG\",\r\n\t\"stock\" : \"Yes\",\r\n\t\"stockType\" : \"out of stock\",\r\n\t\"reason\" : \"Some reasons\",\r\n\t\"prescriptReq\" : \"Yes\",\r\n\t\"pap\" : \"Yes\",\r\n    \"papOffer\": \"Buy 2 Get 3\",\r\n\t\"abcd\" : \"c\",\r\n\t\"seoTitle\" : \"medical\",\r\n\t\"keywords\" : \"medicines\",\r\n\t\"description\" : \"other doctor description\"\r\n}"
 						},
 						"description": ""
 					},
@@ -65,10 +65,38 @@
 				{
 					"name": "product/list",
 					"request": {
-						"url": "{{baseUrl}}product/list",
+						"url": {
+							"raw": "{{baseUrl}}product/list",
+							"host": [
+								"{{baseUrl}}product"
+							],
+							"path": [
+								"list"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "5 FLUCEL 250MG INJECTION TEST",
+									"equals": true,
+									"description": "",
+									"disabled": true
+								}
+							],
+							"variable": []
+						},
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "search",
+									"value": "5 FLUCEL 250MG INJECTION TEST",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
 						"description": ""
 					},
 					"response": []
@@ -122,6 +150,30 @@
 					"response": []
 				},
 				{
+					"name": "product download",
+					"request": {
+						"url": "{{baseUrl}}product/download",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-disposition",
+								"value": "attachment; filename=products.xlsx",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
 					"name": "product/excelImport",
 					"request": {
 						"url": "{{baseUrl}}product/excelimport",
@@ -134,7 +186,7 @@
 									"key": "excelupload",
 									"description": "",
 									"type": "file",
-									"src": "products (1).xlsx"
+									"src": "import_products.xlsx"
 								}
 							]
 						},
