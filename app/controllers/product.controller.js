@@ -214,10 +214,9 @@ exports.import = (req, res) => {
         for (var i = 0; i < req.files.length; i++) {
             files = req.files[i].path;
 
-
             // update image path in document by Id
-            var newvalues = { $set: { productimages: files } };
-            Product.updateMany({ _id: id }, newvalues, function (err, data) {
+            Product.findByIdAndUpdate({ _id: id }, { $set: { productimages: files } },{ returnNewDocument: true },  function (err, data) {
+
                 if (err) return res.status(500).send({
                     status: "failure",
                     message: 'Something went wrong',
