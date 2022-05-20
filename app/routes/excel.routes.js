@@ -17,6 +17,7 @@ module.exports = app => {
     const upload = multer({ storage: storage });
 
     router.post("/excelimport", [upload.single("excelupload")], excel.import);
+    
     router.get("/download", excel.download);
 
   app.use('/api/product/', router);

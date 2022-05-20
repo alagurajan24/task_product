@@ -40,5 +40,3 @@ app.listen(PORT, () => {
 
 require("./app/routes/product.routes")(app);
 require("./app/routes/excel.routes")(app);
-
-

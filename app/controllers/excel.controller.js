@@ -117,9 +117,9 @@ function importExcel(filePath) {
 exports.download = (req, res) => {
     Product.find().then((arrayItems) => {
         let products = [];
-        arrayItems.forEach((arrayItem,i) => {
+        arrayItems.forEach((arrayItem, i) => {
             products.push({
-                productID: i+1,
+                productID: i + 1,
                 productName: arrayItem.productName,
                 productCode: arrayItem.productCode,
                 strength: arrayItem.strength,

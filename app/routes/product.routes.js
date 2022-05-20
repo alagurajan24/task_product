@@ -11,8 +11,5 @@ module.exports = app => {
   router.get("/list", product.list);
 
 
-
-
-
   app.use('/api/product/', router);
 };
