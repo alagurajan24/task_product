@@ -215,7 +215,7 @@ exports.import = (req, res) => {
             files = req.files[i].path;
 
             // update image path in document by Id
-            Product.findByIdAndUpdate({ _id: id }, { $set: { productimages: files } },{ returnNewDocument: true },  function (err, data) {
+            Product.findByIdAndUpdate({ _id: id }, { $push: { productimages: files } },{ returnNewDocument: true },  function (err, data) {
 
                 if (err) return res.status(500).send({
                     status: "failure",
