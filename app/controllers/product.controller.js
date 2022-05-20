@@ -240,12 +240,41 @@ var storage = multer.diskStorage({
     }
 });
 
-exports.list = async (req, res) => {
-    Product.find({ status: { $ne: 2 } }).exec((err, docs) => {
-        res.send({
-            status: 'success',
-            message: 'Product listed successfully',
-            data: docs
-        });
-    });
+
+// search record 
+exports.list = (req, res) => {
+    try {
+        var search = req.query.search;
+        if (search != undefined && search != '') {
+            //exact match
+            Product.find({ $and: [{ $or: [{ productName: { $regex: `^${search}`, $options: 'i' } }, { productCode: { $regex: `^${search}`, $options: 'i' } }] }, { status: { $ne: 2 } }] }, (err, product) => {
+                if (err) {
+                    responseObj = {
+                        status: "error",
+                        message: 'Something went wrong',
+                        data: err
+                    }
+                    res.status(500).send(responseObj);
+                } else {
+                    responseObj = {
+                        status: "success",
+                        message: 'Product record found.',
+                        data: product
+                    }
+                    res.status(200).send(responseObj);
+                }
+            })
+        } else {
+            Product.find({ status: { $ne: 2 } }).exec((err, docs) => {
+                res.send({
+                    status: 'success',
+                    message: 'Product listed successfully',
+                    data: docs
+                });
+            });
+        }
+    } catch (error) {
+        console.log('Error::', error);
+    }
 }
+

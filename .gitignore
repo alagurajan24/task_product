@@ -1,5 +1,6 @@
 node_modules
 uploads
+product_uploads
 build
 npm-debug.log
 .env

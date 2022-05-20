@@ -28,7 +28,7 @@ function importExcel(filePath) {
                 rows: 1
             },
             columnToKey: {
-                A: 'S.No',
+                A: 'id',
                 B: 'productName',
                 C: 'productCode',
                 D: 'strength',
@@ -63,7 +63,7 @@ function importExcel(filePath) {
 
         Product.findOne({ productCode: arrayItem.productCode }, function (err, product) {
             if (product) {
-                Product.updateOne({ _id: product._id }, {$set: { productName: arrayItem.productName, productCode: arrayItem.productCode, strength: arrayItem.strength, dosageForm: arrayItem.dosageForm, packingForm: arrayItem.packingForm, packingDisplay: arrayItem.packingDisplay, packingSize: arrayItem.packingSize, weight: arrayItem.weight, care: arrayItem.care, salt: arrayItem.salt, saltGroup: arrayItem.saltGroup, speciality: arrayItem.speciality, condition: arrayItem.condition, manufacturer: arrayItem.manufacturer, mrp: arrayItem.mrp, priceToCust: arrayItem.priceToCust, taxPercnt: arrayItem.taxPercnt, prescriptReq: arrayItem.prescriptReq, pap: arrayItem.pap, papoffer: arrayItem.papoffer, country: arrayItem.country, productimages: arrayItem.productimages, abcd: arrayItem.abcd, hsn: arrayItem.hsn, stock: arrayItem.stock} },
+                Product.updateOne({ _id: product._id }, {$set: { productName: arrayItem.productName, strength: arrayItem.strength, dosageForm: arrayItem.dosageForm, packingForm: arrayItem.packingForm, packingDisplay: arrayItem.packingDisplay, packingSize: arrayItem.packingSize, weight: arrayItem.weight, care: arrayItem.care, salt: arrayItem.salt, saltGroup: arrayItem.saltGroup, speciality: arrayItem.speciality, condition: arrayItem.condition, manufacturer: arrayItem.manufacturer, mrp: arrayItem.mrp, priceToCust: arrayItem.priceToCust, taxPercnt: arrayItem.taxPercnt, prescriptReq: arrayItem.prescriptReq, pap: arrayItem.pap, papoffer: arrayItem.papoffer, country: arrayItem.country, productimages: arrayItem.productimages, abcd: arrayItem.abcd, hsn: arrayItem.hsn, stock: arrayItem.stock} },
                     function (err, user) {
                         if (err) return res.status(500).send({
                             status: status,
