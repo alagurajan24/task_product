@@ -24,12 +24,12 @@ function importExcel(filePath) {
     const excelData = excelToJson({
         sourceFile: filePath,
         sheets: [{
-            name: 'Sheet1',
+            name: 'products',
             header: {
                 rows: 1
             },
             columnToKey: {
-                A: 'id',
+                A: 's.no',
                 B: 'productName',
                 C: 'productCode',
                 D: 'strength',
@@ -60,7 +60,7 @@ function importExcel(filePath) {
     });
     console.log(excelData);
 
-    excelData.Sheet1.forEach(function (arrayItem) {
+    excelData.products.forEach(function (arrayItem) {
 
         Product.findOne({ productCode: arrayItem.productCode }, function (err, product) {
             if (product) {
